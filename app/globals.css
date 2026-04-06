@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --berry:       #A72677;
+  --berry-light: #f5e0f0;
+  --berry-mid:   #c4508f;
+  --orange:      #FF9759;
+  --orange-light:#fff0e8;
+  --orange-dark: #b05010;
+  --mint:        #B2EDD5;
+  --mint-dark:   #3a9e7a;
+  --mint-light:  #d4f5ea;
+  --mint-deep:   #1d6e50;
+  --olive:       #BAC35A;
+  --olive-light: #f0f3d0;
+  --olive-dark:  #6b7330;
+  --gold:        #FBCE1D;
+  --gold-light:  #fffbe0;
+  --gold-dark:   #8a6e00;
+}
+
+/* iOS safe area */
+.safe-area-bottom { padding-bottom: env(safe-area-inset-bottom); }
+body { padding-top: env(safe-area-inset-top); }
+
+/* Standalone PWA dark status area */
+@media (display-mode: standalone) {
+  body { background: var(--berry); }
+  .max-w-\[390px\] { background: white; }
+}
+
+/* Hide scrollbar on day strip */
+.scrollbar-none { scrollbar-width: none; }
+.scrollbar-none::-webkit-scrollbar { display: none; }
+
+@layer components {
+  /* Chips */
+  .chip { @apply inline-block px-3 py-1 rounded-full text-xs font-semibold; }
+  .chip-berry   { background: var(--berry-light); color: var(--berry); }
+  .chip-orange  { background: var(--orange-light); color: var(--orange-dark); }
+  .chip-olive   { background: var(--olive-light); color: var(--olive-dark); }
+  .chip-mint    { background: var(--mint-light); color: var(--mint-deep); }
+  .chip-gold    { background: var(--gold-light); color: var(--gold-dark); }
+  .chip-done    { background: var(--mint-light); color: var(--mint-deep); }
+  .chip-planned { background: var(--gold-light); color: var(--gold-dark); }
+
+  /* Colour shorthands */
+  .text-berry      { color: var(--berry); }
+  .text-orange     { color: var(--orange); }
+  .text-orange-dark{ color: var(--orange-dark); }
+  .text-mint-dark  { color: var(--mint-dark); }
+  .text-mint-deep  { color: var(--mint-deep); }
+  .text-olive      { color: var(--olive); }
+  .text-olive-dark { color: var(--olive-dark); }
+  .text-gold-dark  { color: var(--gold-dark); }
+
+  .bg-berry       { background-color: var(--berry); }
+  .bg-berry-light { background-color: var(--berry-light); }
+  .bg-orange      { background-color: var(--orange); }
+  .bg-orange-light{ background-color: var(--orange-light); }
+  .bg-mint-dark   { background-color: var(--mint-dark); }
+  .bg-mint-light  { background-color: var(--mint-light); }
+  .bg-olive       { background-color: var(--olive); }
+  .bg-olive-light { background-color: var(--olive-light); }
+  .bg-gold        { background-color: var(--gold); }
+  .bg-gold-light  { background-color: var(--gold-light); }
+
+  .border-berry    { border-color: var(--berry); }
+  .border-olive    { border-color: var(--olive); }
+  .border-mint-dark{ border-color: var(--mint-dark); }
+  .border-orange   { border-color: var(--orange); }
+
+  /* Primary button */
+  .btn-primary {
+    @apply w-full py-4 rounded-[14px] font-semibold text-base text-white border-0 cursor-pointer transition-all active:scale-98;
+    background: var(--berry);
+  }
+}
+
+/* System font stack — replaces Google Fonts Inter */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+}
